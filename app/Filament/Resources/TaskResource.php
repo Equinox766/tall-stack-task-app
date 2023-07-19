@@ -56,7 +56,7 @@ class TaskResource extends Resource
                     ->searchable(),
                 Tables\Columns\BadgeColumn::make('taskGroup.title')
                     ->colors([
-                        'secondary',
+                        'secondary' => 'Testing',
                         'primary' => 'Backlog',
                         'warning' => 'In Progress',
                         'success' => 'Done',
