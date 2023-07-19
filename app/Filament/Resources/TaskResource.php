@@ -17,7 +17,14 @@ class TaskResource extends Resource
 {
     protected static ?string $model = Task::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-hashtag';
+
+
+    protected static ?string $navigationGroup = 'Tasks';
+    protected static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
     public static function form(Form $form): Form
     {
@@ -65,9 +72,8 @@ class TaskResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime('d/m/y H:i'),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime('d/m/y H:i'),
+                    ->dateTime('d/m/y H:i')
+                    ->label('Created'),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('user')

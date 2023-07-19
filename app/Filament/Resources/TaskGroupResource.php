@@ -17,8 +17,14 @@ class TaskGroupResource extends Resource
 {
     protected static ?string $model = TaskGroup::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-bookmark';
 
+    protected static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    protected static ?string $navigationGroup = 'Tasks';
     public static function form(Form $form): Form
     {
         return $form
