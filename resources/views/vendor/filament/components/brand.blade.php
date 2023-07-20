@@ -9,7 +9,7 @@
         </svg>
     </div>
 
-    <div class="pt-1 pl-2 text-2xl font-bold tracking-tight filament-brand dark:text-white">
+    <div class="pt-1 pl-2 text-2xl font-bold tracking-tight filament-brand">
         {{ config('app.name') }}
     </div>
 
